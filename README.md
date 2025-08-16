@@ -14,27 +14,6 @@
 
 > **Objetivo**: Preservar el firmware **original** de la Tablet **Canaima CNM8183 / QT2308BK** y explicar de forma clara y reproducible cómo **extraer (dump)** y **verificar** ese firmware utilizando [**MTKClient**](https://github.com/bkerler/mtkclient).
 
----
-
-## ✨ Contenido
-
-- [Contexto rápido](#-contexto-rápido)
-- [Requisitos](#-requisitos)
-- [Instalación de MTKClient](#-instalación-de-mtkclient)
-- [Preparar el dispositivo (BROM / conexión)](#-preparar-el-dispositivo-brom--conexión)
-- [Métodos de respaldo (dump)](#-métodos-de-respaldo-dump)
-  - [A) Dump completo en un solo archivo (full flash)](#a-dump-completo-en-un-solo-archivo-full-flash)
-  - [B) Dump de **todas** las particiones a carpeta](#b-dump-de-todas-las-particiones-a-carpeta)
-  - [C) Dump de particiones específicas](#c-dump-de-particiones-específicas)
-- [Verificación de integridad y organización](#-verificación-de-integridad-y-organización)
-- [Buenas prácticas de preservación](#-buenas-prácticas-de-preservación)
-- [Solución de problemas](#-solución-de-problemas)
-- [FAQ](#-faq)
-- [Aspectos legales y descargo de responsabilidad](#-aspectos-legales-y-descargo-de-responsabilidad)
-- [Créditos y referencias](#-créditos-y-referencias)
-
----
-
 ## Informaciòn del dispositivo
 
 - **Modelo**: Tablet **Canaima CNM8183 / QT2308BK**  
@@ -66,6 +45,76 @@
 ## Instalación de MTKClient
 
 > Consulta el repo oficil de [MTK Client](https://github.com/bkerler/mtkclient) para su instalacion y uso (CLI/GUI) — proyecto de **bkerler**
+
+
+
+## Uso
+
+### Uso de MTKTools con interfaz grafica:
+
+1. Abrir interfaz grafica con el comando de abajo
+```
+python mtk_gui.py
+```
+2. Apagar la tablet y conectarla por USB a la computadora (**IMPORTANTE** debe tener el teclado desconectado) mientras presiona los botones de subir y bajar volumen al mismo itempo
+3. En la herramienta ve a la pestaña "Read partition(s)" y marca "select all partitions" y haga click en "Read partition(s)", elija una carpeta para guardar los binarios
+4. Espere y disfrute de su firmware extraido :)
+
+
+### Rootear la tablet
+
+1. Primero extraiga el archivo **Boot.img** con el siguiente comando o usando la interfaz grafica
+```
+python mtk.py r boot boot.img 
+```
+**Interfaz grafica**
+```
+python mtk_gui.py 
+```
+
+2. Reboot the phone
+```
+python mtk.py reset
+```
+
+3. Download patched magisk for mtk:
+Download latest Magisk [here](https://github.com/topjohnwu/Magisk/releases/latest)
+
+4. Install on target phone
+- you need to enable usb-debugging via Settings/About phone/Version, Tap 7x on build number
+- Go to Settings/Additional settings/Developer options, enable "OEM unlock" and "USB Debugging"
+- Install magisk apk
+```
+adb install app-release.apk
+```
+- accept auth rsa request on mobile screen of course to allow adb connection
+
+5. Upload boot to /sdcard/Download
+```
+adb push boot.img /sdcard/Download
+```
+
+6. Start magisk, tap on Install, select boot.img from /sdcard/Download, then:
+```
+adb pull /sdcard/Download/[displayed magisk patched boot filename here]
+mv [displayed magisk patched boot filename here] boot.patched
+```
+
+7. Do the steps needed in section "Unlock bootloader below"
+
+8. Flash magisk-patched boot
+```
+python mtk.py w boot boot.patched
+```
+
+9. Reboot the phone
+```
+python mtk.py reset
+```
+
+10. Disconnect usb cable and enjoy your rooted phone :)
+
+
 
 ## Aspectos legales y descargo de responsabilidad
 
