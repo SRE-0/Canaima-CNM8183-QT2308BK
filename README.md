@@ -35,23 +35,23 @@
 
 ---
 
-## 🚦 Contexto rápido
+## Informaciòn del dispositivo
 
 - **Modelo**: Tablet **Canaima CNM8183 / QT2308BK**  
 - **Firmware identificado**: `cnm8183_v1.0_20240629`  
-- **Arquitectura/SoC**: Plataforma **MediaTek** (el nombre comercial “CNM8183” sugiere familia **MT8183**, **verificar** chipset real en tu unidad).  
+- **Arquitectura/SoC**: Plataforma **MediaTek 8183**.  
 - **Motivación**: preservar el estado **stock**, crear un respaldo verificable y documentar un proceso **reproducible**.
 
 > **Tip**: La verificación del chipset y el mapa de particiones se puede hacer con `mtk printgpt` y registrando VID/PID al conectar en modo BROM. Más abajo te explico cómo.
 
 ---
 
-## ✅ Requisitos
+## Requisitos
 
-**Host** (elige tu SO):
+**SO**:
 
 - **Linux**: probado con Arch Linux (Hyprland / Wayland), Ubuntu y Fedora  
-- **Windows**: 10 / 11  
+- **Windows**: 10 / 11  (probado en w11)
 - **macOS**: 12+
 
 **Software y dependencias**:
@@ -61,21 +61,31 @@
 - **libusb/fuse** (en Linux)  
 - **Drivers** (Windows: puerto MTK + UsbDk)
 
-**Herramienta principal**:
-- **MTKClient** (CLI/GUI) — proyecto de **bkerler**
-
 ---
 
-## 🛠 Instalación de MTKClient
+## Instalación de MTKClient
 
-> **Linux (Arch / Ubuntu / Fedora)**
+> Consulta el repo oficil de [MTK Client](https://github.com/bkerler/mtkclient) para su instalacion y uso (CLI/GUI) — proyecto de **bkerler**
 
-```bash
-# Arch / Manjaro (paquetes base)
-sudo pacman -S python python-pip git libusb fuse2
+## Aspectos legales y descargo de responsabilidad
 
-# Ubuntu/Debian
-sudo apt install -y python3 python3-pip git libusb-1.0-0 libfuse2
+- Este proyecto es educativo y para preservación del firmware original de tu propio dispositivo.
 
-# Fedora
-sudo dnf install -y python3 python3-pip git libusb1 fuse
+- No se incluyen imágenes propietarias del fabricante en este repositorio (solo guías, scripts y hashes de verificación).
+
+- No compartas ni distribuyas dumps que contengan identificadores únicos o propiedad intelectual del fabricante sin permiso.
+
+- Tú eres responsable de lo que haces con tu dispositivo. Ni el autor ni colaboradores se hacen responsables de daños, pérdida de datos o bloqueos (brick).
+
+## Créditos y referencias
+
+[MTKClient](https://github.com/bkerler/mtkclient) — Herramienta principal para lectura/escritura en dispositivos MediaTek.
+
+Recursos de aprendizaje y guías de backup/dump en plataformas MTK:
+
+> Si esta guía te sirvió, considera dar **estrella al repo**, abrir Issues con mejoras o PRs con correcciones ✨
+---
+
+
+
+
