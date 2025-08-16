@@ -1,4 +1,4 @@
-# Canaima CNM8183 / QT2308BK — Firmware Preservation & Dump Guide
+## Canaima CNM8183 / QT2308BK — Firmware Preservation & Dump Guide
 
 ![Project](https://img.shields.io/badge/Project-Firmware_Preservation-5A67D8?style=for-the-badge&logo=github&logoColor=white&labelColor=101010)
 ![Device](https://img.shields.io/badge/Device-CNM8183_/_QT2308BK-0EA5E9?style=for-the-badge&logo=android&logoColor=white&labelColor=101010)
@@ -6,69 +6,72 @@
 ![Chipset](https://img.shields.io/badge/Platform-MediaTek_MT8183_-F59E0B?style=for-the-badge&logo=mediatek&logoColor=white&labelColor=101010)
 ![License](https://img.shields.io/badge/Docs_License-CC_BY_4.0-4B5563?style=for-the-badge&logo=creativecommons&logoColor=white&labelColor=101010)
 
-> **Objetivo**: Preservar el firmware **original** de la Tablet **Canaima CNM8183 / QT2308BK** y explicar de forma clara y reproducible cómo **extraer (dump)** el firmware utilizando [**MTKClient**](https://github.com/bkerler/mtkclient).
-
-
-## Informaciòn del dispositivo
-
-- **Modelo**: Tablet **Canaima CNM8183 / QT2308BK**  
-- **Firmware identificado**: `cnm8183_v1.0_20240629`  
-- **Arquitectura/SoC**: Plataforma **MediaTek 8183**.  
-- **Motivación**: preservar el estado **stock**, crear un respaldo verificable y documentar un proceso **reproducible**.
-
-> **Tip**: La verificación del chipset y el mapa de particiones se puede hacer con `mtk printgpt` y registrando VID/PID al conectar en modo BROM. Más abajo te explico cómo.
+> **Goal**: Preserve the **original firmware** of the **Canaima CNM8183 / QT2308BK Tablet** and provide a clear, reproducible guide on how to **dump (extract)** the firmware using [**MTKClient**](https://github.com/bkerler/mtkclient).
 
 ---
 
-## Instalacion y uso
-### Sistemas compatibles con el proyecto
+## Device Information
 
-- **Linux**: probado con Arch Linux 
-- **Windows**: 10 / 11  (probado en w11)
-- **macOS**: 12+
+- **Model**: Tablet **Canaima CNM8183 / QT2308BK**  
+- **Identified Firmware**: `cnm8183_v1.0_20240629`  
+- **Architecture/SoC**: **MediaTek MT8183 platform**  
+- **Motivation**: Preserve the **stock state**, create a verifiable backup, and document a **reproducible process**  
 
-### Software y dependencias
+> **Tip**: You can verify the chipset and partition map with `mtk printgpt` and by recording the VID/PID when connecting in BROM mode. Instructions are included below.
+
+---
+
+## Installation & Usage
+
+### Supported Systems
+
+- **Linux**: Tested on Arch Linux  
+- **Windows**: 10 / 11 (tested on Windows 11)  
+- **macOS**: 12+  
+
+### Required Software & Dependencies
 
 - **Python** 3.9+  
 - **Git**  
-- **libusb/fuse** (en Linux)  
-- **Drivers** (Windows: puerto MTK + UsbDk)
+- **libusb/fuse** (Linux)  
+- **Drivers** (Windows: MTK Port + UsbDk)  
 
-### Instalación de MTKClient
+### Installing MTKClient
 
-> Consulta el repo oficil de [MTK Client](https://github.com/bkerler/mtkclient) para su instalacion y uso (CLI/GUI) — proyecto de **bkerler**
+> Refer to the official [MTK Client repository](https://github.com/bkerler/mtkclient) for installation and usage instructions (CLI/GUI) — project by **bkerler**.
 
+---
 
+## Usage
 
-## Uso
+### Using MTKClient with GUI
 
-### Uso de MTKTools con interfaz grafica:
-
-1. Abrir interfaz grafica con el comando de abajo
+1. Launch the graphical interface with:
 ```
 python mtk_gui.py
 ```
 
-2. Apagar la tablet y conectarla por USB a la computadora (**IMPORTANTE** debe tener el teclado desconectado) mientras presiona los botones de subir y bajar volumen al mismo itempo
+2. Power off the tablet and connect it via USB to your PC (**IMPORTANT**: disconnect any keyboard) while holding both **volume up** and **volume down** buttons simultaneously.
 
-3. En la herramienta ve a la pestaña "Read partition(s)" y marca "select all partitions" y haga click en "Read partition(s)", elija una carpeta para guardar los binarios
-   
-4. Espere y disfrute de su firmware extraido :)
+3. In the tool, go to the "**Read partition(s)**" tab → check "**Select all partitions**" → click "**Read partition(s)**" and choose a folder to save the binaries.  
 
+4. Wait for the process to finish and enjoy your freshly extracted firmware. ✅
 
+---
 
-### Rootear la tablet
+### Rooting the Tablet
 
-1. Primero extraiga el archivo **Boot.img** con el siguiente comando o usando la interfaz grafica
+1. First, extract **boot.img** with the following command (or via the GUI):
 ```
 python mtk.py r boot boot.img 
 ```
-**Interfaz grafica**
+**GUI alternative:**
 ```
 python mtk_gui.py 
 ```
 
-2. Reboot the phone
+
+2. Reboot the device:
 ```
 python mtk.py reset
 ```
@@ -108,29 +111,23 @@ python mtk.py w boot boot.patched
 python mtk.py reset
 ```
 
-10. Disconnect usb cable and enjoy your rooted phone :)
+10. Disconnect the USB cable and enjoy your rooted tablet. 🎉  
 
-
-
-## Aspectos legales y descargo de responsabilidad
-
-- Este proyecto es educativo y para preservación del firmware original de tu propio dispositivo.
-
-- No se incluyen imágenes propietarias del fabricante en este repositorio (solo guías, scripts y hashes de verificación).
-
-- No compartas ni distribuyas dumps que contengan identificadores únicos o propiedad intelectual del fabricante sin permiso.
-
-- Tú eres responsable de lo que haces con tu dispositivo. Ni el autor ni colaboradores se hacen responsables de daños, pérdida de datos o bloqueos (brick).
-
-## Créditos y referencias
-
-[MTKClient](https://github.com/bkerler/mtkclient) — Herramienta principal para lectura/escritura en dispositivos MediaTek.
-
-Recursos de aprendizaje y guías de backup/dump en plataformas MTK:
-
-> Si esta guía te sirvió, considera dar **estrella al repo**, abrir Issues con mejoras o PRs con correcciones ✨
 ---
 
+## Legal & Disclaimer
 
+- This project is **for educational purposes** and aims to preserve the original firmware of your **own device**.  
+- No proprietary images from the manufacturer are included in this repository (only guides, scripts, and verification hashes).  
+- Do not share or redistribute dumps containing unique identifiers or manufacturer intellectual property without permission.  
+- You are solely responsible for any modifications to your device. The author and contributors are **not liable** for damages, data loss, or device bricking.  
 
+---
 
+## Credits & References
+
+- [MTKClient](https://github.com/bkerler/mtkclient) — Primary tool for MediaTek device read/write operations.  
+
+Additional learning resources and backup/dump guides for MTK platforms.  
+
+> If this guide helped you, consider giving the repo a ⭐, opening Issues with improvements, or submitting PRs with corrections ✨
