@@ -3,16 +3,11 @@
 ![Project](https://img.shields.io/badge/Project-Firmware_Preservation-5A67D8?style=for-the-badge&logo=github&logoColor=white&labelColor=101010)
 ![Device](https://img.shields.io/badge/Device-CNM8183_/_QT2308BK-0EA5E9?style=for-the-badge&logo=android&logoColor=white&labelColor=101010)
 ![Firmware](https://img.shields.io/badge/Firmware-cnm8183__v1.0__20240629-22C55E?style=for-the-badge&logo=buffer&logoColor=white&labelColor=101010)
-![Chipset](https://img.shields.io/badge/Platform-MediaTek_MT81xx_(verificar)-F59E0B?style=for-the-badge&logo=mediatek&logoColor=white&labelColor=101010)
-![Linux](https://img.shields.io/badge/Linux-Arch_/_Ubuntu_/_Fedora-0DB7ED?style=for-the-badge&logo=linux&logoColor=white&labelColor=101010)
-![Windows](https://img.shields.io/badge/Windows-10_/_11-0078D4?style=for-the-badge&logo=windows&logoColor=white&labelColor=101010)
-![macOS](https://img.shields.io/badge/macOS-Supported-000000?style=for-the-badge&logo=apple&logoColor=white&labelColor=101010)
-![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)
-![MTKClient](https://img.shields.io/badge/Tool-mtkclient-FF6A00?style=for-the-badge&logo=terminal&logoColor=white&labelColor=101010)
-![Integrity](https://img.shields.io/badge/Integrity-SHA256_verified-10B981?style=for-the-badge&logo=vercel&logoColor=white&labelColor=101010)
+![Chipset](https://img.shields.io/badge/Platform-MediaTek_MT8183_-F59E0B?style=for-the-badge&logo=mediatek&logoColor=white&labelColor=101010)
 ![License](https://img.shields.io/badge/Docs_License-CC_BY_4.0-4B5563?style=for-the-badge&logo=creativecommons&logoColor=white&labelColor=101010)
 
-> **Objetivo**: Preservar el firmware **original** de la Tablet **Canaima CNM8183 / QT2308BK** y explicar de forma clara y reproducible cómo **extraer (dump)** y **verificar** ese firmware utilizando [**MTKClient**](https://github.com/bkerler/mtkclient).
+> **Objetivo**: Preservar el firmware **original** de la Tablet **Canaima CNM8183 / QT2308BK** y explicar de forma clara y reproducible cómo **extraer (dump)** el firmware utilizando [**MTKClient**](https://github.com/bkerler/mtkclient).
+
 
 ## Informaciòn del dispositivo
 
@@ -25,24 +20,21 @@
 
 ---
 
-## Requisitos
+## Instalacion y uso
+### Sistemas compatibles con el proyecto
 
-**SO**:
-
-- **Linux**: probado con Arch Linux (Hyprland / Wayland), Ubuntu y Fedora  
+- **Linux**: probado con Arch Linux 
 - **Windows**: 10 / 11  (probado en w11)
 - **macOS**: 12+
 
-**Software y dependencias**:
+### Software y dependencias
 
 - **Python** 3.9+  
 - **Git**  
 - **libusb/fuse** (en Linux)  
 - **Drivers** (Windows: puerto MTK + UsbDk)
 
----
-
-## Instalación de MTKClient
+### Instalación de MTKClient
 
 > Consulta el repo oficil de [MTK Client](https://github.com/bkerler/mtkclient) para su instalacion y uso (CLI/GUI) — proyecto de **bkerler**
 
@@ -56,9 +48,13 @@
 ```
 python mtk_gui.py
 ```
+
 2. Apagar la tablet y conectarla por USB a la computadora (**IMPORTANTE** debe tener el teclado desconectado) mientras presiona los botones de subir y bajar volumen al mismo itempo
+
 3. En la herramienta ve a la pestaña "Read partition(s)" y marca "select all partitions" y haga click en "Read partition(s)", elija una carpeta para guardar los binarios
+   
 4. Espere y disfrute de su firmware extraido :)
+
 
 
 ### Rootear la tablet
