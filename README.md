@@ -67,7 +67,7 @@ python mtk_gui.py
 
 ### Rooting the Tablet
 
-1. First, extract **boot.img** with the following command (or via the GUI):
+1. First, extract **boot.img** with the following command (or via the GUI) or donwload [here](https://pixeldrain.com/u/HzvAnFzR):
 ```
 python mtk.py r boot boot.img 
 ```
