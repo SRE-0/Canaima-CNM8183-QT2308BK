@@ -10,6 +10,12 @@
 
 ---
 
+## Firmware
+### Firmware extracted cnm8183_v1.0_20240629 with android 13 in .img format files
+Yuo can download this firmware [here](https://pixeldrain.com/u/G3nkbvzW)
+
+---
+
 ## Device Information
 
 - **Model**: Tablet **Canaima CNM8183 / QT2308BK**  
