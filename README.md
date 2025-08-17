@@ -153,7 +153,7 @@ fastboot reboot recovery
 ```
 7. Click on **reboot system** and enjoy your GSI rom :)
 
---
+---
 
 ## Legal & Disclaimer
 
