@@ -57,7 +57,7 @@ You can download this firmware [here](https://pixeldrain.com/u/G3nkbvzW)
 python mtk_gui.py
 ```
 
-2. Power off the tablet and connect it via USB to your PC (**IMPORTANT**: disconnect any keyboard) while holding both **volume up** and **volume down** buttons simultaneously.
+2. Power off the tablet and connect it via USB to your PC (**IMPORTANT**: Disconnect the physical keyboard before any step) while holding both **volume up** and **volume down** buttons simultaneously.
 
 3. In the tool, go to the "**Read partition(s)**" tab → check "**Select all partitions**" → click "**Read partition(s)**" and choose a folder to save the binaries.  
 
@@ -120,6 +120,40 @@ python mtk.py reset
 10. Disconnect the USB cable and enjoy your rooted tablet. 🎉  
 
 ---
+
+### Insatll GSI Roms  
+
+1. In the devices 
+- you need to enable usb-debugging via Settings/About phone/Version, Tap 7x on build number
+- Go to Settings/Additional settings/Developer options, enable "OEM unlock" and "USB Debugging"
+  
+2. Coonect USB cable to tablet (**IMPORTANT**: Disconnect the physical keyboard before any step) and reboot your devices in **BootLoader**
+```
+adb reboot bootloader
+```
+
+3. Unlock the bootloader by typing this command and pressing the button on the screen (This erases all data user).
+```
+fastboot oem unlock
+```
+
+4. Reboot your devices in **Fatboot**
+```
+fastboot reboot fastboot
+```
+
+5. Install GSI .img
+```
+fastboot flash system gsi_file_name.img
+```
+
+6. Reboot into recovery mode and apply **factory reset**  
+```
+fastboot reboot recovery
+```
+7. Click on **reboot system** and enjoy your GSI rom :)
+
+--
 
 ## Legal & Disclaimer
 
