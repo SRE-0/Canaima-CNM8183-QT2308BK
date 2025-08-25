@@ -121,7 +121,7 @@ python mtk.py reset
 
 ---
 
-### Insatll GSI Roms  
+### Install GSI Roms  
 
 1. In the devices 
 - you need to enable usb-debugging via Settings/About phone/Version, Tap 7x on build number
